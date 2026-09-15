@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#312E81" />
+  <title>Cloud Attendance Management System</title>
+  <link rel="icon" href="assets/cloud-attendance-orbit-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <section id="login-view" class="login-view">
+    <div class="login-art">
+      <div class="brand brand-light"><img src="assets/cloud-attendance-orbit-logo.png" alt="Cloud Attendance logo"><div><strong>Cloud Attendance</strong><small>MANAGEMENT SYSTEM</small></div></div>
+      <div class="login-copy"><span class="eyebrow">Attendance, in focus.</span><h1>The daily pulse of your academic community.</h1><p>One secure workspace for accurate records, timely interventions, and every class that matters.</p><div class="trust-row"><span>◈ Secure access</span><i></i><span>Live cloud sync</span></div></div>
+      <img class="login-illustration" src="assets/cloud-attendance-login-illustration.png" alt="Cloud attendance illustration">
+    </div>
+    <form id="login-form" class="login-form-panel">
+      <div class="brand brand-dark mobile-brand"><img src="assets/cloud-attendance-orbit-logo.png" alt="Cloud Attendance logo"><div><strong>Cloud Attendance</strong><small>MANAGEMENT SYSTEM</small></div></div>
+      <span class="eyebrow">Secure workspace</span><h2>Sign in to continue</h2><p class="intro">Use your institution credentials to access your workspace.</p>
+      <label>Username or email<input id="login-email" type="email" value="admin@cloud.edu" required></label>
+      <label>Password <a href="#" id="forgot-password">Forgot password?</a><span class="password-field"><input id="login-password" type="password" value="password" required><button type="button" id="toggle-password" aria-label="Show password">◉</button></span></label>
+      <fieldset><legend>Select your role</legend><div class="role-options"><label><input type="radio" name="role" value="Admin" checked>Admin</label><label><input type="radio" name="role" value="Faculty">Faculty</label><label><input type="radio" name="role" value="Student">Student</label></div></fieldset>
+      <label class="check-label"><input type="checkbox" checked>Remember me on this device</label>
+      <button class="primary-btn wide" type="submit">Login to workspace</button>
+      <div class="security-note">⌁ Your attendance records are encrypted and securely synchronized in the cloud.</div>
+    </form>
+  </section>
+
+  <section id="app-view" class="app-view hidden">
+    <aside class="sidebar" id="sidebar"><div class="sidebar-inner"><div class="brand brand-light"><img src="assets/cloud-attendance-orbit-logo.png" alt="Cloud Attendance logo"><div><strong>Cloud Attendance</strong><small>COMMAND CENTER</small></div></div><span class="side-label">Workspace</span><nav id="sidebar-nav"></nav><div class="profile-card"><div class="avatar">AM<span class="online"></span></div><div><b>Admin Manager</b><small>System Administrator</small></div><button id="logout-btn" title="Sign out">↪</button></div></div></aside>
+    <main class="main-area"><header class="topbar"><button class="icon-btn menu-btn" id="menu-btn">☰</button><div class="top-heading"><span id="top-eyebrow">TUESDAY · 26 AUGUST 2026</span><b id="top-title">Good morning, Admin!</b></div><form class="global-search" id="global-search"><span>⌕</span><input id="search-input" placeholder="Search students, records...  ⌘K"></form><button class="icon-btn notification-btn" id="notification-btn">♧<i></i></button><button class="user-trigger" id="user-trigger"><span class="avatar mini">AM</span><span>⌄</span></button></header><div id="page" class="page"></div></main>
+  </section>
+  <div id="toast-region" class="toast-region"></div><div id="modal-region"></div>
+  <script src="js/script.js"></script>
+</body>
+</html>
