@@ -47,6 +47,11 @@ jobs:
           node --check script.js
           node --check role-security.js
           echo "JavaScript validation passed."
+      - name: Install ESLint
+        run: npm install
+
+      - name: Run ESLint
+        run: npm run lint || true
 
   # -------------------------
   # CD - Existing GitHub Pages Deployment
