@@ -22,8 +22,37 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
+
+  # -------------------------
+  # CI - Validation
+  # -------------------------
+  validate:
+    name: CI - Validate Project
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Check Required Files
+        run: |
+          test -f index.html
+          test -f style.css
+          test -f script.js
+          test -f role-security.js
+          echo "Required files are present."
+
+      - name: Validate JavaScript
+        run: |
+          node --check script.js
+          node --check role-security.js
+          echo "JavaScript validation passed."
+
+  # -------------------------
+  # CD - Existing GitHub Pages Deployment
+  # -------------------------
   deploy:
+    needs: validate
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
